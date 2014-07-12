@@ -24,7 +24,17 @@ RUN apt-get install adduser sudo
 RUN apt-get install curl
 
 ### "nice-things"
-RUN apt-get install ack-grep strace vim git tree wget unzip rsync
+RUN apt-get install ack-grep strace vim git tree wget unzip rsync man-db
+
+### "cmake"
+RUN apt-get install cmake
+RUN apt-get install clang
+
+### "lib-deps"
+RUN apt-get install libblitz0-dev
+RUN apt-get install libboost-all-dev
+RUN apt-get install libhdf5-dev
+RUN apt-get install libgnuplot-iostream-dev
 
 ### "texlive"
 RUN apt-get install --no-install-recommends texlive-latex-base
@@ -36,13 +46,6 @@ RUN apt-get install python-pip
 
 ### "dexy"
 RUN pip install dexy
-
-### "cmake"
-RUN apt-get install -y cmake
-RUN apt-get install -y clang
-RUN apt-get install -y libblitz0-dev
-RUN apt-get install -y libboost-all-dev libhdf5-dev
-RUN apt-get install libgnuplot-iostream-dev
 
 ### "scipy"
 RUN apt-get install python-scipy

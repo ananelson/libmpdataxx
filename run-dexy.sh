@@ -14,16 +14,22 @@ cmake ..                     \
 -DCMAKE_BUILD_TYPE=Release   \
 -DCMAKE_CXX_COMPILER=clang++ 
 make
+popd
+
+### "make-sim"
+mkdir sim
 
 # Copy the spreading_drop_2d binary
-cp tests/sandbox/spreading_drop_2d/spreading_drop_2d ..
+cp build/tests/sandbox/spreading_drop_2d/spreading_drop_2d sim
 
 # Copy the .py files (they should be moved so this is no longer necessary)
-cp tests/sandbox/spreading_drop_2d/*.py ..
-cp tests/tutorial/7_shallow_water/*.py ..
+cp tests/sandbox/spreading_drop_2d/*.py sim
+cp tests/tutorial/7_shallow_water/*.py sim
 
-popd
-chmod +x spreading_drop_2d
+chmod +x sim/spreading_drop_2d
 
 ### "run-dexy"
 dexy -loglevel DEBUG
+
+### "clean-up"
+rm -r sim
