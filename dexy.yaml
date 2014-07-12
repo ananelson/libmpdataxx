@@ -1,0 +1,14 @@
+simulation:
+    - run-simulation.sh|sh:
+        - spreading_drop_2d:
+            - output: False
+        - sh: { create-new-files: True }
+
+analyze-sim-output:
+    - .py|py:
+        # settings for py filter
+        - py : { add-new-files : True }
+        # depend on all .py files
+        - .py
+        # depend on simulation bundle
+        - simulation
